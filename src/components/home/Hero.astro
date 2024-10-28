@@ -36,40 +36,60 @@ const seasonImages = {
 
 // Ottieni l'immagine corrispondente alla stagione corrente
 const seasonImage = seasonImages[currentSeason];
-
 ---
 
-<div class="swiper">
+<div class="swiper w-full">
   <!-- Additional required wrapper -->
-  <div class="swiper-wrapper bg-neutral-900 p-0 m-0 relative">
+  <div class="swiper-wrapper bg-neutral-900 p-0 m-0 relative w-full">
     <!-- Slides -->
     {
       seasonImage.map((image) => (
-        <div class="swiper-slide min-h-dvh relative flex justify-center items-center">
+        <div class="swiper-slide min-h-dvh relative flex justify-center items-center w-full">
           <Image
             src={image.default}
             alt="slide"
             class="absolute object-center w-full h-full object-cover zoom"
-            width={1920}
-            height={900}
+            widths={[800, 1280,]}
+            sizes={`(max-width: 720px) 200px, (max-width: 1600px) 1280px`}
             loading="lazy"
           />
-          
         </div>
       ))
     }
-    <div class="title absolute inset-0 z-10 w-full h-full flex justify-center items-center bg-black/40 flex-col text-center p-4">
-      <span class="text-2xl font-bold text-white  uppercase md:text-2xl lg:text-3xl" data-aos="fade-right" data-aos-delay="1000">Benvenuti nel</span>
-      <h1 class="text-4xl text-white mt-2 uppercase font-extrabold text-pretty md:text-5xl lg:text-7xl " data-aos="fade-up" data-aos-delay="1000">Bosco di Sant'Antonio</h1>
-      <h2 class="text-white text-pretty font-medium text-xl md:text-3xl mt-5" data-aos="fade-left" data-aos-delay="1000">"Un tesoro naturalistico nel cuore dell’Abruzzo"</h2>
-    <div class="mt-5">
-    <ContactButton classe="px-3 py-3 md:px-5 md:py-3.5 mt-3 text-xl md:text-xl" animation="fade-in" delay="1300"/>
-  </div>  
-  </div>
+    <div
+      class="title absolute inset-0 z-10 w-full h-full flex justify-center items-center bg-black/40 flex-col text-center p-4"
+    >
+      <span
+        class="text-2xl font-bold text-white uppercase md:text-2xl lg:text-3xl"
+        data-aos="fade-right"
+        data-aos-delay="1000">Benvenuti nel</span
+      >
+      <h1
+        class="text-4xl text-white mt-2 uppercase font-extrabold text-pretty md:text-5xl lg:text-7xl"
+        data-aos="fade-up"
+        data-aos-delay="1000"
+      >
+        Bosco di Sant'Antonio
+      </h1>
+      <h2
+        class="text-white text-pretty font-medium text-xl md:text-3xl mt-5"
+        data-aos="fade-left"
+        data-aos-delay="1000"
+      >
+        "Un tesoro naturalistico nel cuore dell’Abruzzo"
+      </h2>
+      <div class="mt-5">
+        <ContactButton
+          classe="px-3 py-3 md:px-5 md:py-3.5 mt-3 text-xl md:text-xl"
+          animation="fade-in"
+          delay="1300"
+        />
+      </div>
+    </div>
   </div>
 </div>
 
-<Swiper/>
+<Swiper />
 <script is:inline>
   new Swiper(".swiper", {
     allowTouchMove: false,
