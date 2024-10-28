@@ -1,0 +1,122 @@
+---
+import { Image } from "astro:assets";
+import tavolaRotonda from "@img/attivitaCarosello/Tavola-Rotonda.webp";
+import camoscio from "@img/attivitaCarosello/camoscio.webp";
+import orso from "@img/attivitaCarosello/orso-bruno.webp";
+import amaro from "@img/attivitaCarosello/monte-amaro.jpg";
+import tari from "@img/attivitaCarosello/fonte-tari.webp";
+const cards = [
+  {
+    title: "Pernottamento in Rifugio e trekking",
+    image: tari,
+    link: "https://www.maiellaescursioni.it/tour-item/pernottamento-in-rifugio-e-trekking/",
+  },
+  {
+    title: "Camoscio Appenninico Visita in area faunistica",
+    image: camoscio,
+    link: "https://www.maiellaescursioni.it/tour-item/sulle-tracce-del-camoscio-appenninico/",
+  },
+  {
+    title: "Orso Bruno - Trekking e Avvistamento",
+    image: orso,
+    link: "https://www.maiellaescursioni.it/tour-item/scoprendo-l-orso-bruno-marsicano/",
+  },
+  {
+    title: "Cima di Tavola Rotonda e Canyon della Sfischia",
+    image: tavolaRotonda,
+    link: "https://www.maiellaescursioni.it/tour-item/il-canyon-della-sfischia-e-cima-di-tavola-rotonda-escursioni-sulla-maiella/",
+  },
+  {
+    title: "Monte Amaro - La vetta più ambita della Maiella",
+    image: amaro,
+    link: "https://www.maiellaescursioni.it/tour-item/monte-amaro/",
+  },
+];
+import Swiper from "@components/Shared/Swiper.astro";
+---
+
+<section class="py-16 bg-white">
+  <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-800 text-center">
+    Scopri le nostre escursioni
+  </h2>
+  <div class="swiper mySwiper max-w-screen-2xl">
+    <div class="swiper-wrapper">
+      {
+        cards.map((card) => (
+          <div class="swiper-slide p-5 ">
+            <a
+              href={card.link}
+              class="group relative block h-96 rounded-2xl w-full overflow-hidden shadow-xl"
+              aria-label={card.title + " external url"}
+              target="_blank"
+            >
+              <Image
+                title={card.title}
+                src={card.image}
+                alt={card.title}
+                width={600}
+                height={400}
+                loading="lazy"
+                class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div class="absolute bottom-12 right-4 p-4 w-5/6">
+                <h2 class="mb-2 text-2xl text-pretty text-right font-bold text-white transition-transform duration-500 group-hover:translate-x-2">
+                  {card.title}
+                </h2>
+              </div>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+    <div
+      class="swiper-button-next font-bold backdrop-blur-lg bg-stone-900/80 rounded-full p-6 mr-5"
+    >
+    </div>
+    <div
+      class="swiper-button-prev font-bold backdrop-blur-lg bg-stone-900/80 rounded-full p-6 ml-5"
+    >
+    </div>
+  </div>
+</section>
+<Swiper />
+
+<script is:inline>
+  new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
+      660: {
+        slidesPerView: 2,
+      },
+      1100: {
+        slidesPerView: 3,
+      },
+      1400: {
+        slidesPerView: 4,
+      },
+    },
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+<style>
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 25px !important;
+    color: #0e9f6e;
+  }
+  .swiper-pagination-bullet {
+    background-color: #0e9f6e !important;
+  }
+</style>

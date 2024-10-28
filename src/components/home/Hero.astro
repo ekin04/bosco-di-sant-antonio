@@ -1,0 +1,98 @@
+---
+export const prerender = false;
+import ContactButton from "@components/Shared/ContactButton.astro";
+import Swiper from "@components/Shared/Swiper.astro";
+import { Image } from "astro:assets";
+
+const autunno = await Astro.glob("../../assets/img/hero/autunno/*");
+const primavera = await Astro.glob("../../assets/img/hero/primavera/*");
+const inverno = await Astro.glob("../../assets/img/hero/inverno/*");
+
+const getSeason = () => {
+  const now = new Date();
+  const month = now.getMonth(); // Ottieni il mese (0 = Gennaio, 11 = Dicembre)
+
+  if (month >= 2 && month <= 4) {
+    return "spring"; // Primavera (Marzo, Aprile, Maggio)
+  } else if (month >= 5 && month <= 7) {
+    return "summer"; // Estate (Giugno, Luglio, Agosto)
+  } else if (month >= 8 && month <= 10) {
+    return "autumn"; // Autunno (Settembre, Ottobre, Novembre)
+  } else {
+    return "winter"; // Inverno (Dicembre, Gennaio, Febbraio)
+  }
+};
+
+// Ottieni la stagione corrente
+const currentSeason = getSeason();
+
+// Mappa le immagini per ogni stagione
+const seasonImages = {
+  spring: primavera,
+  summer: primavera,
+  autumn: autunno,
+  winter: inverno,
+};
+
+// Ottieni l'immagine corrispondente alla stagione corrente
+const seasonImage = seasonImages[currentSeason];
+
+---
+
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper bg-neutral-900 p-0 m-0 relative">
+    <!-- Slides -->
+    {
+      seasonImage.map((image) => (
+        <div class="swiper-slide min-h-dvh relative flex justify-center items-center">
+          <Image
+            src={image.default}
+            alt="slide"
+            class="absolute object-center w-full h-full object-cover zoom"
+            width={1920}
+            height={900}
+            loading="lazy"
+          />
+          
+        </div>
+      ))
+    }
+    <div class="title absolute inset-0 z-10 w-full h-full flex justify-center items-center bg-black/40 flex-col text-center p-4">
+      <span class="text-2xl font-bold text-white  uppercase md:text-2xl lg:text-3xl" data-aos="fade-right" data-aos-delay="1000">Benvenuti nel</span>
+      <h1 class="text-4xl text-white mt-2 uppercase font-extrabold text-pretty md:text-5xl lg:text-7xl " data-aos="fade-up" data-aos-delay="1000">Bosco di Sant'Antonio</h1>
+      <h2 class="text-white text-pretty font-medium text-xl md:text-3xl mt-5" data-aos="fade-left" data-aos-delay="1000">"Un tesoro naturalistico nel cuore dell’Abruzzo"</h2>
+    <div class="mt-5">
+    <ContactButton classe="px-3 py-3 md:px-5 md:py-3.5 mt-3 text-xl md:text-xl" animation="fade-in" delay="1300"/>
+  </div>  
+  </div>
+  </div>
+</div>
+
+<Swiper/>
+<script is:inline>
+  new Swiper(".swiper", {
+    allowTouchMove: false,
+    speed: 2000,
+    effect: "fade",
+    crossFade: true,
+
+    duration: 800,
+    autoplay: { delay: 9000 },
+  });
+</script>
+<style>
+  .zoom {
+    animation: zoom 8s infinite alternate; /* Cambia il tempo e la modalità di animazione secondo necessità */
+  }
+
+  @keyframes zoom {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+      translate-x: 1000px;
+    }
+  }
+</style>

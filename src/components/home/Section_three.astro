@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import monumentale from "@img/landing/monumentale.webp";
+import funghi from "@img/landing/funghi.jpg";
+import lupo from "@img/landing/lupo.webp";
+import orso from "@img/landing/orso.jpg";
+import ContactButton from "@components/Shared/ContactButton.astro";
+import ChiamaciButton from "@components/Shared/ChiamaciButton.astro";
+---
+
+<!-- Cosa Faremo Section -->
+<section class="py-16 px-6 md:px-8 bg-white overflow-hidden">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8 items-center justify-center">
+      <div>
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-8 text-gray-800 flex items-center"
+          data-aos="fade-left"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="60"
+            height="60"
+            viewBox="0 0 100 100"
+            ><path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="M46.43 7.5c4.055 0 7.337 3.379 7.337 7.434s-3.282 7.433-7.337 7.433s-7.434-3.379-7.434-7.433S42.376 7.5 46.43 7.5m.483 15.543c2.79-.087 4.947 1.649 6.082 3.476l7.723 12.84l13.516 5.696c3.861 1.64 2.027 6.757-2.317 5.599a5 5 0 0 0-.483-.29l-9.075 20.08s2.896 6.662 6.565 14.193c3.572 7.626-5.117 10.909-8.303 3.861l-3.185-7.144l-4.634 10.137l-1.931-.869l5.406-11.778l-9.075-19.79c-.386.096-.772 0-1.255 0c0 0-10.523 23.941-13.42 30.217c-2.799 6.275-11.101 2.51-8.302-3.67c2.8-6.178 16.123-36.202 16.123-36.202l-9.903.162c-1.5.013-1.859-.226-1.954-1.35c-.153-2.97-.415-9.958.272-13.197c.886-4.175 1.415-8.77 4.344-10.137s8.013 2.414 8.013 2.414c.772-2.51 3.186-4.248 5.793-4.248m5.985 15.06V49.69l8.303 18.15l8.302-18.247l-12.067-5.02c-.58-.29-1.062-.676-1.449-1.255z"
+              class="mr-2 text-green-500"></path></svg
+          >
+
+          Prenota l'escursione
+        </h2>
+        <p class="text-lg mb-4" data-aos="fade-left">
+          Insieme alla guida scopriremo la bellezza degli "Alberi Monumentali"
+          con più di 300 anni di età, impareremo a trovare e riconoscere le
+          piante del Bosco, tra cui le moltissime specie commestibili.
+        </p>
+        <p class="text-lg" data-aos="fade-left" data-aos-delay="300">
+          Conosceremo il magnifico mondo dei funghi e come trovarli in natura.
+          Scopriremo gli animali selvatici che popolano il bosco come l'orso e
+          il lupo.
+        </p>
+        <div
+          class="flex flex-row mt-5 items-center justify-around lg:justify-start lg: gap-8"
+        >
+          <ContactButton
+            classe="px-3 py-3 lg:px-6 lg:py-4 mt-3 text-xl lg:text-2xl"
+            animation="zoom-in"
+            delay="500"
+          />
+          <ChiamaciButton
+            classe="px-3 py-3 lg:px-6 lg:py-4 mt-3 text-xl lg:text-2xl"
+            animation="zoom-in"
+            delay="500"
+          />
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 mx-auto ">
+        <Image
+        title="Bosco di Sant'Antonio - Alberi Monumentali"
+          src={monumentale}
+          alt="Alberi Monumentali"
+          width={400}
+          height={400}
+          class="rounded-lg object-cover object-bottom h-[200px] w-[200px] lg:w-[250px] lg:h-[250px] xl:w-[300px] xl:h-[300px] shadow-lg"
+          data-aos="fade-down-right"
+        />
+        <Image
+          title="Bosco di Sant'Antonio - funghi"
+          src={funghi}
+          alt="Funghi del bosco"
+          width={400}
+          height={400}
+          class="rounded-lg object-cover object-center-left h-[200px] w-[200px] lg:w-[250px] lg:h-[250px] xl:w-[300px] xl:h-[300px] shadow-lg"
+          data-aos="fade-down-left"
+          data-aos-delay="300"
+        />
+        <Image
+          title="Bosco di Sant'Antonio - orso"
+          src={orso}
+          alt="Bosco di Sant'Antonio - Orso"
+          width={400}
+          height={400}
+          class="rounded-lg object-cover object-left h-[200px] w-[200px] lg:w-[250px] lg:h-[250px] xl:w-[300px] xl:h-[300px] shadow-lg"
+          data-aos="fade-up-right"
+          data-aos-delay="600"
+        />
+        <Image
+          title="Bosco di Sant'Antonio - lupo"
+          src={lupo}
+          alt="Bosco di Sant'Antonio - Lupo"
+          width={500}
+          height={500}
+          class="rounded-lg object-cover object-left h-[200px] w-[200px] lg:w-[250px] lg:h-[250px] xl:w-[300px] xl:h-[300px] shadow-lg"
+          data-aos="fade-up-left"
+          data-aos-delay="900"
+        />
+      </div>
+    </div>
+  </div>
+</section>

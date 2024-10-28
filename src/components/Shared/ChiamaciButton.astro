@@ -1,0 +1,16 @@
+---
+import { Icon } from "astro-icon/components";
+const { classe, animation, delay } = Astro.props;
+---
+
+<!-- chiamaci button -->
+<a href="tel:+393761594011"
+  class={"flex flex-row justify-center items-center gap-2 text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none transition focus:ring-green-300 font-medium rounded-lg text-center " +
+    classe}
+  type="button"
+  data-aos={animation}
+  data-aos-delay={delay}
+  data-aos-duration="800"
+>
+  <Icon name="mdi:phone" class="text-4xl " /> Chiamaci
+</a>

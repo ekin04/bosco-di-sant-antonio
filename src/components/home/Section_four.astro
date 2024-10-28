@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import foto_di_gruppo from "@img/hero/primavera/primavera3.jpg";
+---
+
+<!-- A chi è rivolto Section -->
+<section class="py-16 px-4 md:px-8 bg-slate-100">
+  <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row gap-8">
+    <div class="mt-8 flex justify-center md:w-1/2">
+      <Image
+        title="Bosco di Sant'Antonio - gruppo escursionisti"
+        src={foto_di_gruppo}
+        alt="Gruppo di escursionisti nel Bosco di Sant'Antonio"
+        width={600}
+        height={900}
+        class="rounded-lg shadow-lg"
+      />
+    </div>
+    <div class="flex flex-col justify-center md:w-1/2">
+      <h2
+        class="text-3xl md:text-4xl font-bold mb-8 text-gray-800 flex items-center"
+      >
+        <Icon
+          name="mdi:people-group-outline"
+          class="mr-2 text-green-500 text-6xl"
+        />
+
+        A chi è rivolto
+      </h2>
+      <div class="space-y-4">
+        <p class="text-lg">
+          A chiunque voglia passare un'esperienza rilassante in natura.
+        </p>
+        <p class="text-lg">
+          È una semplice camminata adatta a tutti, anche ai bambini. Il trekking
+          si snoda all'interno di un percorso nel bosco non molto impegnativo,
+          di 2,5 km e 50 metri di dislivello.
+        </p>
+        <p class="text-lg">
+          L'attività è molto amata dalle coppie in cerca di luoghi magnifici da
+          visitare, da gruppi che vogliano trascorrere un'esperienza in natura,
+          da famiglie con bambini che vogliono scoprire le bellezze del bosco.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

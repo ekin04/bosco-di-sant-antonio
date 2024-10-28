@@ -1,0 +1,15 @@
+---
+import 'vanilla-cookieconsent/dist/cookieconsent.css';
+import '@assets/style/cookieStyle.css';
+---
+<button type="button" data-cc="show-preferencesModal" class="bg-stone-700 px-3 py-2 rounded-lg text-stone-950 hover:bg-stone-200 transition">Preferenze Cookie</button>
+
+<script>
+    import { run } from 'vanilla-cookieconsent';
+    import { config } from './CookieConsentConfig';
+
+    // toggle custom black theme
+    document.body.classList.add('cc--light-funky');
+
+    run(config);
+</script>
