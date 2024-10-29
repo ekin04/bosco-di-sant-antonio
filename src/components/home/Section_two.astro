@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import mappa from "@img/landing/mappa.jpeg"
+import mappa from "@img/landing/mappa.png"
 ---
 
 <!-- Dove si trova Section -->
@@ -41,12 +41,12 @@ import mappa from "@img/landing/mappa.jpeg"
       <div class="md:w-1/2 w-full h-96">
         <a href="https://maps.app.goo.gl/c38zuajVxTvN8WrB7" target="_blank" rel="nofollow">
         <Image
-          title="Mappa bosco di sant'antonio"
           alt={"Mappa bosco di sant'antonio"}
           src={mappa}
-          class="w-full h-full rounded-xl shadow-lg"
+          class="w-full h-full rounded-xl shadow-lg object-cover object-center"
           data-aos="zoom-in"
           data-aos-delay="700"
+          aria-label="Mappa bosco di sant'antonio"
           />
         </a>
         <!-- <iframe
